@@ -25,7 +25,7 @@ io.on('connection', function (socket) {
     var userName = socket.request._query.userName;
     allUsers.push(userName);
     emitUsers();
-    var msg = '${userName}وارد اتاق شد!';
+    var msg = `${userName} وارد اتاق شد!`;
     console.log(msg)
 
     //broadcast when a user connects
@@ -35,7 +35,7 @@ io.on('connection', function (socket) {
     );
     socket.on('disconnect', () => {
 
-        var disMsg = `!${userName}از اتاق خارج شد!`;
+        var disMsg = `${userName} از اتاق خارج شد!`;
         console.log(disMsg);
         io.emit('message', {
             "message": disMsg,
